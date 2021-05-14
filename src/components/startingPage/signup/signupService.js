@@ -5,15 +5,21 @@ import axios from 'axios';
 
 
 function SignupService() {
-    const [details, setdetails] = useState({name:'',age:'',phone:'',gender:'',password:'',description:''});
+    const [details, setdetails] = useState({username:'',name:'',age:'',phone:'',gender:'',password:'',description:''});
+    
     const formOnSubmit=(e)=>{
         e.preventDefault();
-        // if(isNaN (details.age) ){
-        //     alert('Age is not valid');
-        // }else if(isNaN (details.phone) ||details.phone.length!=10){
-        //     alert('Phone Number is not valid');
-        // }
-        axios.get('http://localhost:3001/abc')
+        if(isNaN (details.age) ){
+            alert('Age is not valid');
+            return;
+        }else if(isNaN (details.phone) ||details.phone.length!=10){
+            alert('Phone Number is not valid');
+            return;
+        }if(details.username==''||details.name==''||details.age==''||details.gender=='Choose...'||details.password==''||details.description==''){
+            alert('Please Fill All The Fields');
+            return;
+        }
+        axios.post('http://localhost:4444/signup_service/',details)
         .then((response)=>{
             console.log(response);
         })
@@ -21,8 +27,16 @@ function SignupService() {
             console.log(err);
         })
     }
-    const responseGoogle = (response) => {
-        console.log(response.profileObj);
+
+    const responseGoogle = (event) => {
+        //console.log(event);
+        axios.post('http://localhost:4444/signup_service/google',event.profileObj)
+        .then((response)=>{
+            console.log(response);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
     }
     return (
             <div className="card block" >
@@ -32,14 +46,20 @@ function SignupService() {
                     
                     <h7 className="subtitle">Come join the community now! Let's set up your Account</h7>
                     <br/>
-                    <h7 style={{color: 'blue'}}>Already Have One: <a href="./login.html"> SignIn</a></h7>
+                    <h7 style={{color: 'blue'}}>Already Have One: <a href="/login_service_provider"> SignIn</a></h7>
                     <br/>
                     <br/>
                      <div className="formData">
                         <form onSubmit={formOnSubmit}> 
                             <div className="input-group input-group-sm mb-3">
                                 <div className="input-group-prepend">
-                                    <span className="input-group-text" id="inputGroup-sizing-sm">Name or UserName</span>
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">Username</span>
+                                </div>
+                                <input type="text" val name="username" value={details.username} onChange={(e)=>setdetails({...details,username:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                            </div>
+                            <div className="input-group input-group-sm mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">Name</span>
                                 </div>
                                 <input type="text" val name="name" value={details.name} onChange={(e)=>setdetails({...details,name:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
                             </div>
@@ -84,7 +104,7 @@ function SignupService() {
                     <hr/>
                     <GoogleLogin
                         clientId="399925514877-as290pe2r7i9uurnbdheofap76a9jjn6.apps.googleusercontent.com"
-                        buttonText="Login Via Google"
+                        buttonText="SignUp Via Google"
                         onSuccess={responseGoogle}
                         
                         cookiePolicy={'single_host_origin'}

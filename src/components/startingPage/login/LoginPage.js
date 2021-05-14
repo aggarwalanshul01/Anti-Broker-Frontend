@@ -4,6 +4,8 @@ import BuildIcon from '@material-ui/icons/Build';
 import Button from '@material-ui/core/Button';
 import StorefrontIcon from '@material-ui/icons/Storefront';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
+import {NavLink} from 'react-router-dom';
+
 const part=()=>{
     return(<div className='SignupPage_block'>
     <div className='SignupPage_head'>
@@ -13,20 +15,27 @@ const part=()=>{
     <div className='SignupPage_text'>
         You will be required to fill up your details for logging in.
     </div>
+    
     <div className='SignupPage_button_service'>
+    <NavLink exact to='/login_service_provider' style={{textDecoration:'none'}}>
         <Button variant="outlined" color="primary" style={{color:'green'}}>
-            <span style={{marginRight:'8px'}}>Service Provider</span><BuildIcon/> 
+            <span style={{marginRight:'8px'}}>Service Provider</span><BuildIcon/>
         </Button>
+        </NavLink> 
     </div>
     <div className='SignupPage_button_store' >
+    <NavLink exact to='/login_store' style={{textDecoration:'none'}}>
     <Button variant="outlined" color="primary" style={{color:'green'}}>
     <span style={{marginRight:'8px'}}>Store</span><StorefrontIcon/>
         </Button>
+        </NavLink> 
     </div>
     <div className='SignupPage_button_incharge'>
+    <NavLink exact to='/login_manager' style={{textDecoration:'none'}}>
         <Button variant="outlined" color="primary" style={{color:'green'}}>
             <span style={{marginRight:'8px'}}>Incharge</span><AccountCircleIcon/>
         </Button>
+        </NavLink> 
     </div>
 </div>)
 }
