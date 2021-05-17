@@ -2,10 +2,9 @@ import React,{useState,useEffect} from 'react';
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
-import { Redirect } from "react-router-dom";
-import MainPage from "../../ServiceProvider/MainPage";
+import MainPage from "../../Store/MainPage";
 
-function SignupService() {
+function SignupStore() {
     const [details, setdetails] = useState({username:'',name:'',age:'',phone:'',gender:'',password:'',description:''});
     const [Signed, setSigned] = useState(0);
     const formOnSubmit=(e)=>{
@@ -20,13 +19,12 @@ function SignupService() {
             alert('Please Fill All The Fields');
             return;
         }
-        axios.post('http://localhost:3001/signup_service/',details)
+        axios.post('http://localhost:3001/signup_store/',details)
         .then((response)=>{
             setSigned(1);
-        //s    console.log(response);
+          //  console.log(response);
         })
         .catch((err)=>{
-            alert(err);
             console.log(err);
         })
     }
@@ -110,10 +108,10 @@ function SignupService() {
     }
     const responseGoogle = (event) => {
         //console.log(event);
-        axios.post('http://localhost:3001/signup_service/google',event.profileObj)
+        axios.post('http://localhost:3001/signup_store/google',event.profileObj)
         .then((response)=>{
             setSigned(1);
-          //  console.log(response);
+         //   console.log(response);
         })
         .catch((err)=>{
             console.log(err);
@@ -121,9 +119,9 @@ function SignupService() {
     }
     return (
         <>
-            {Signed==0?signingform():<MainPage/>}
-        </>
+        {Signed==0?signingform():<MainPage/>}
+    </>
            )  
 }
-{/*  */}
-export default SignupService
+
+export default SignupStore

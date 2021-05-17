@@ -2,34 +2,22 @@ import React,{useState,useEffect} from 'react'
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
-import MainPage from "../../ServiceProvider/MainPage";
+import MainPage from "../../Store/MainPage";
 
-function LoginService() {
+
+function LoginStore() {
     const [details, setdetails] = useState({username:'',password:''});
     const [Signed, setSigned] = useState(0);
-
     const formOnSubmit=(e)=>{
         e.preventDefault();
         if(details.username=='' || details.password==''){
             alert('Please Fill All The Fields');
             return;
         }
-        axios.post('http://localhost:3001/login_service/',details)
+        axios.post('http://localhost:3001/login_store/',details)
         .then((response)=>{
             setSigned(1);
-      //      console.log("aaaaa",response);
-        })
-        .catch((err)=>{
-            console.log(err);
-        })
-    }
-
-    const responseGoogle = (event) => {
-        console.log(event);
-        axios.post('http://localhost:3001/login_service/google/',event.profileObj)
-        .then((response)=>{
-            setSigned(1);
-          //  console.log(response);
+            //console.log("aaaaa",response);
         })
         .catch((err)=>{
             console.log(err);
@@ -80,6 +68,19 @@ function LoginService() {
                 </div>
         )
     }
+    const responseGoogle = (event) => {
+        console.log(event);
+        axios.post('http://localhost:3001/login_store/google/',event.profileObj)
+        .then((response)=>{
+            setSigned(1);
+           // console.log(response);
+        })
+        .catch((err)=>{
+            console.log(err);
+        })
+    }
+
+
     return (
         <>
             {Signed==0?signingform():<MainPage/>}
@@ -87,4 +88,4 @@ function LoginService() {
            )  
 }
 
-export default LoginService
+export default LoginStore
