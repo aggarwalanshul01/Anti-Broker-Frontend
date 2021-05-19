@@ -16,6 +16,13 @@ function LoginService() {
         }
         axios.post('http://localhost:3001/login_service/',details)
         .then((response)=>{
+            if(response.data=='Wrong Password'){
+                alert("WRONG PASSWORD");
+                return;
+            }if(response.data=='No UserName Exist'){
+                alert("No UserName Exist");
+                return;
+            }
             setSigned(1);
       //      console.log("aaaaa",response);
         })
@@ -28,6 +35,10 @@ function LoginService() {
         console.log(event);
         axios.post('http://localhost:3001/login_service/google/',event.profileObj)
         .then((response)=>{
+            if(response.data=='Please Register Yourself Via Signup'){
+                alert('Please Register Yourself Via Signup');
+                return;
+            }
             setSigned(1);
           //  console.log(response);
         })

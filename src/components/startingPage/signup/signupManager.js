@@ -22,6 +22,10 @@ function SignupManager() {
         }
         axios.post('http://localhost:3001/signup_manager/',details)
         .then((response)=>{
+            if(response.data=='Username Already Exists'){
+                alert('Username Already Exists');
+                return;
+            }
             setSigned(1);
            // console.log(response);
         })
@@ -34,6 +38,10 @@ function SignupManager() {
         //console.log(event);
         axios.post('http://localhost:3001/signup_manager/google',event.profileObj)
         .then((response)=>{
+            if(response.data=='You Are Already Registered'){
+                alert('You Are Already Registered');
+                return;
+            }
             setSigned(1);
            // console.log(response);
         })
