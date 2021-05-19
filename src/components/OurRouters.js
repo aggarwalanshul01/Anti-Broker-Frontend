@@ -8,11 +8,15 @@ import LoginStore from "./startingPage/login/LoginStore";
 import LoginManager from "./startingPage/login/LoginManager";
 import MainPage from "./startingPage/MainPage";
 import MainPageService from "./ServiceProvider/MainPage";
+import MainPageStore from "./Store/MainPage";
+import MainPageManager from "./Manager/MainPage";
 function OurRouters() {
     return (
         <div>
             <Switch>
                 <Route exact path='/service_provider_main' component={MainPageService}/> 
+                <Route exact path='/store_main' component={MainPageStore}/> 
+                <Route exact path='/manager_main' component={MainPageManager}/> 
                 <Route exact path='/signup_service_provider' component={SignupService}/>
                 <Route exact path='/signup_store' component={SignupStore}/>
                 <Route exact path='/signup_manager' component={SignupManager}/>

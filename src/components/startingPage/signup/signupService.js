@@ -5,7 +5,7 @@ import axios from 'axios';
 import { Redirect } from "react-router-dom";
 import MainPage from "../../ServiceProvider/MainPage";
 
-function SignupService() {
+function SignupService(props) {
     const [details, setdetails] = useState({username:'',name:'',age:'',phone:'',gender:'',password:'',description:''});
     const [Signed, setSigned] = useState(0);
     const formOnSubmit=(e)=>{
@@ -26,7 +26,7 @@ function SignupService() {
                 alert('Username Already Exists');
                 return;
             }
-            setSigned(1);
+            props.history.replace('/service_provider_main',response.data);
         //s    console.log(response);
         })
         .catch((err)=>{
@@ -120,7 +120,7 @@ function SignupService() {
                 alert('You Are Already Registered');
                 return;
             }
-            setSigned(1);
+            props.history.replace('/service_provider_main',response.data);
           //  console.log(response);
         })
         .catch((err)=>{
@@ -129,7 +129,7 @@ function SignupService() {
     }
     return (
         <>
-            {Signed==0?signingform():<MainPage/>}
+            {signingform()}
         </>
            )  
 }

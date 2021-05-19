@@ -4,9 +4,11 @@ import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
 import MainPage from "../../Store/MainPage";
 
-function SignupStore() {
+function SignupStore(props) {
     const [details, setdetails] = useState({username:'',name:'',age:'',phone:'',gender:'',password:'',description:''});
     const [Signed, setSigned] = useState(0);
+    const [data, setdata] = useState(null);
+    
     const formOnSubmit=(e)=>{
         e.preventDefault();
         if(isNaN (details.age) ){
@@ -25,7 +27,9 @@ function SignupStore() {
                 alert('Username Already Exists');
                 return;
             }
-            setSigned(1);
+            setdata(response.data);
+            props.history.replace('/store_main',response.data);
+
           //  console.log(response);
         })
         .catch((err)=>{
@@ -118,7 +122,7 @@ function SignupStore() {
                 alert('You Are Already Registered');
                 return;
             }
-            setSigned(1);
+            props.history.replace('/store_main',response.data);
          //   console.log(response);
         })
         .catch((err)=>{
@@ -127,7 +131,7 @@ function SignupStore() {
     }
     return (
         <>
-        {Signed==0?signingform():<MainPage/>}
+        {signingform()}
     </>
            )  
 }

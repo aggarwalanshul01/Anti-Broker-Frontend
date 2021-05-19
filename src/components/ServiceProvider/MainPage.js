@@ -1,9 +1,10 @@
 import React from 'react'
 
-function MainPage() {
+function MainPage(props) {
+    const data=(props.location.state);
     return (
         <div>
-            Service
+            <button>{data.name}a</button>
         </div>
     )
 }

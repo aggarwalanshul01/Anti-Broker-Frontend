@@ -5,9 +5,12 @@ import axios from 'axios';
 import MainPage from "../../Store/MainPage";
 
 
-function LoginStore() {
+function LoginStore(props) {
+    
     const [details, setdetails] = useState({username:'',password:''});
     const [Signed, setSigned] = useState(0);
+    const [data, setdata] = useState(null);
+    
     const formOnSubmit=(e)=>{
         e.preventDefault();
         if(details.username=='' || details.password==''){
@@ -15,7 +18,7 @@ function LoginStore() {
             return;
         }
         axios.post('http://localhost:3001/login_store/',details)
-        .then((response)=>{
+        .then(async(response)=>{
             if(response.data=='Wrong Password'){
                 alert("WRONG PASSWORD");
                 return;
@@ -23,8 +26,11 @@ function LoginStore() {
                 alert("No UserName Exist");
                 return;
             }
-            setSigned(1);
-            //console.log("aaaaa",response);
+            
+            setdata(response.data);
+            props.history.replace('/store_main',response.data);
+           // setSigned(1);
+            //console.log("aaaaa",response.data);
         })
         .catch((err)=>{
             console.log(err);
@@ -83,7 +89,7 @@ function LoginStore() {
                 alert('Please Register Yourself Via Signup');
                 return;
             }
-            setSigned(1);
+            props.history.replace('/store_main',response.data);
            // console.log(response);
         })
         .catch((err)=>{
@@ -94,7 +100,7 @@ function LoginStore() {
 
     return (
         <>
-            {Signed==0?signingform():<MainPage/>}
+            {signingform()}
         </>
            )  
 }

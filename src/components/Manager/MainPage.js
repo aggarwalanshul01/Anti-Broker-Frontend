@@ -1,9 +1,10 @@
 import React from 'react'
 
-function MainPage() {
+function MainPage(props) {
+    const data=(props.location.state);
     return (
         <div>
-            Manager
+            <button>{data.name}aa</button>
         </div>
     )
 }

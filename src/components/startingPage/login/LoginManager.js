@@ -4,7 +4,7 @@ import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
 import MainPage from "../../Manager/MainPage";
 
-function LoginManager() {
+function LoginManager(props) {
     const [details, setdetails] = useState({username:'',password:''});
     const [Signed, setSigned] = useState(0);
 
@@ -23,7 +23,7 @@ function LoginManager() {
                 alert("No UserName Exist");
                 return;
             }
-            setSigned(1);
+            props.history.replace('/manager_main',response.data);
             //console.log("aaaaa",response);
         })
         .catch((err)=>{
@@ -83,8 +83,7 @@ function LoginManager() {
                 alert('Please Register Yourself Via Signup');
                 return;
             }
-            setSigned(1);
-            console.log(response);
+            props.history.replace('/manager_main',response.data);
         })
         .catch((err)=>{
             console.log(err);
@@ -94,7 +93,7 @@ function LoginManager() {
 
     return (
         <>
-            {Signed==0?signingform():<MainPage/>}
+            {signingform()}
         </>
            )  
 }
