@@ -1,7 +1,8 @@
 import MainHeader from "./MainHeader";
 import React,{useState} from 'react';
 import '../../css/startingPage/MainPage.css';
-import ClickFunctionalities from './ClickFunctionalities'
+import ClickFunctionalities from './ClickFunctionalities';
+import OurRouters from "../OurRouters";
 
 function MainPage() {
     const [Login, setLogin] = useState(0);

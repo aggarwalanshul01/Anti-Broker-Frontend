@@ -10,10 +10,14 @@ import MainPage from "./startingPage/MainPage";
 import MainPageService from "./ServiceProvider/MainPage";
 import MainPageStore from "./Store/MainPage";
 import MainPageManager from "./Manager/MainPage";
+import Profile from "./ServiceProvider/Components/Profile";
+import Routers_Service from "./ServiceProvider/Components/Routers";
+
 function OurRouters() {
     return (
-        <div>
+        <div>   
             <Switch>
+                
                 <Route exact path='/service_provider_main' component={MainPageService}/> 
                 <Route exact path='/store_main' component={MainPageStore}/> 
                 <Route exact path='/manager_main' component={MainPageManager}/> 
@@ -23,7 +27,7 @@ function OurRouters() {
                 <Route exact path='/login_service_provider' component={LoginService}/>
                 <Route exact path='/login_store' component={LoginStore}/>
                 <Route exact path='/login_manager' component={LoginManager}/>
-                <Route component={MainPage}/>
+                <Route exact path='/' component={MainPage}/>
             </Switch>
         </div>
     )
