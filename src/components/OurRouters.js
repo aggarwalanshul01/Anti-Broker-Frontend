@@ -13,21 +13,21 @@ import MainPageManager from "./Manager/MainPage";
 import Profile from "./ServiceProvider/Components/Profile";
 import Routers_Service from "./ServiceProvider/Components/Routers";
 
-function OurRouters() {
+function OurRouters(props) {
     return (
         <div>   
+            <Routers_Service data={props.data} setdata={props.setdata}/>
             <Switch>
-                
-                <Route exact path='/service_provider_main' component={MainPageService}/> 
-                <Route exact path='/store_main' component={MainPageStore}/> 
-                <Route exact path='/manager_main' component={MainPageManager}/> 
-                <Route exact path='/signup_service_provider' component={SignupService}/>
-                <Route exact path='/signup_store' component={SignupStore}/>
-                <Route exact path='/signup_manager' component={SignupManager}/>
-                <Route exact path='/login_service_provider' component={LoginService}/>
-                <Route exact path='/login_store' component={LoginStore}/>
-                <Route exact path='/login_manager' component={LoginManager}/>
-                <Route exact path='/' component={MainPage}/>
+                <Route exact path='/service_provider_main' render={()=>{return <MainPageService data={props.data} setdata={props.setdata}/>}}/> 
+                <Route exact path='/store_main' render={()=>{return <MainPageStore data={props.data} setdata={props.setdata}/>}}/> 
+                <Route exact path='/manager_main' render={()=>{return <MainPageManager data={props.data} setdata={props.setdata}/>}}/> 
+                <Route exact path='/signup_service_provider' render={()=>{return <SignupService data={props.data} setdata={props.setdata}/>}} />
+                <Route exact path='/signup_store' render={()=>{return <SignupStore data={props.data} setdata={props.setdata}/>}} />
+                <Route exact path='/signup_manager' render={()=>{return <SignupManager data={props.data} setdata={props.setdata}/>}} />
+                <Route exact path='/login_service_provider' render={()=>{return <LoginService data={props.data} setdata={props.setdata}/>}}/>
+                <Route exact path='/login_store' render={()=>{return <LoginStore data={props.data} setdata={props.setdata}/>}}/>
+                <Route exact path='/login_manager' render={()=>{return <LoginManager data={props.data} setdata={props.setdata}/>}} />
+                <Route exact path='/' render={()=>{return <MainPage data={props.data} setdata={props.setdata}/>}} />
             </Switch>
         </div>
     )

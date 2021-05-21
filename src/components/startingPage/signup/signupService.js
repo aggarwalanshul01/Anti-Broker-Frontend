@@ -26,7 +26,9 @@ function SignupService(props) {
                 alert('Username Already Exists');
                 return;
             }
-            props.history.replace('/service_provider_main',response.data);
+            
+            props.setdata(response.data);
+            setSigned(1);
         //s    console.log(response);
         })
         .catch((err)=>{
@@ -115,12 +117,13 @@ function SignupService(props) {
     const responseGoogle = (event) => {
         //console.log(event);
         axios.post('http://localhost:3001/signup_service/google',event.profileObj)
-        .then((response)=>{
+        .then(async(response)=>{
             if(response.data=='You Are Already Registered'){
                 alert('You Are Already Registered');
                 return;
             }
-            props.history.replace('/service_provider_main',response.data);
+             props.setdata(response.data);
+            setSigned(1);
           //  console.log(response);
         })
         .catch((err)=>{
@@ -129,7 +132,7 @@ function SignupService(props) {
     }
     return (
         <>
-            {signingform()}
+            {Signed==0?signingform():<Redirect to='/service_provider_main'/>}
         </>
            )  
 }

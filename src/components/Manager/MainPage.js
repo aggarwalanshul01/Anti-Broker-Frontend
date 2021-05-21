@@ -1,7 +1,7 @@
 import React from 'react'
 
 function MainPage(props) {
-    const data=(props.location.state);
+    let data=props.data;
     return (
         <div>
             <button>{data.name}aa</button>

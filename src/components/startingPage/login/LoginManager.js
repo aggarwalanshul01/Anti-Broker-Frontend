@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 import MainPage from "../../Manager/MainPage";
 
 function LoginManager(props) {
@@ -23,8 +24,8 @@ function LoginManager(props) {
                 alert("No UserName Exist");
                 return;
             }
-            props.history.replace('/manager_main',response.data);
-            //console.log("aaaaa",response);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -83,7 +84,8 @@ function LoginManager(props) {
                 alert('Please Register Yourself Via Signup');
                 return;
             }
-            props.history.replace('/manager_main',response.data);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -93,7 +95,7 @@ function LoginManager(props) {
 
     return (
         <>
-            {signingform()}
+            {Signed==0?signingform():<Redirect to='/manager_main'/>}
         </>
            )  
 }

@@ -3,10 +3,10 @@ import React from 'react'
 import LoginStore from "../startingPage/login/LoginStore";
 
 function MainPage(props) {
-    const data=(props.location.state);
+    let data=props.data;
     return (
         <div>
-            
+            hh
         </div>
     )
 }

@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react';
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 import MainPage from "../../Store/MainPage";
 
 function SignupStore(props) {
@@ -27,8 +28,8 @@ function SignupStore(props) {
                 alert('Username Already Exists');
                 return;
             }
-            setdata(response.data);
-            props.history.replace('/store_main',response.data);
+            props.setdata(response.data);
+            setSigned(1);
 
           //  console.log(response);
         })
@@ -122,8 +123,8 @@ function SignupStore(props) {
                 alert('You Are Already Registered');
                 return;
             }
-            props.history.replace('/store_main',response.data);
-         //   console.log(response);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -131,7 +132,7 @@ function SignupStore(props) {
     }
     return (
         <>
-        {signingform()}
+        {Signed==0?signingform():<Redirect to='/store_main'/>}
     </>
            )  
 }

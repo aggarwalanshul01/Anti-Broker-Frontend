@@ -26,8 +26,8 @@ function SignupManager(props) {
                 alert('Username Already Exists');
                 return;
             }
-            props.history.replace('/manager_main',response.data);
-           // console.log(response);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -42,8 +42,8 @@ function SignupManager(props) {
                 alert('You Are Already Registered');
                 return;
             }
-            props.history.replace('/manager_main',response.data);
-           // console.log(response);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -129,7 +129,7 @@ function SignupManager(props) {
     }
     return (
         <>
-        {signingform()}
+        {Signed==0?signingform():<Redirect to='/manager_main'/>}
     </>
            )  
 }

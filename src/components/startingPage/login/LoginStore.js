@@ -2,6 +2,7 @@ import React,{useState,useEffect} from 'react'
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
+import { Redirect } from "react-router-dom";
 import MainPage from "../../Store/MainPage";
 
 
@@ -27,10 +28,8 @@ function LoginStore(props) {
                 return;
             }
             
-            setdata(response.data);
-            props.history.replace('/store_main',response.data);
-           // setSigned(1);
-            //console.log("aaaaa",response.data);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -89,8 +88,8 @@ function LoginStore(props) {
                 alert('Please Register Yourself Via Signup');
                 return;
             }
-            props.history.replace('/store_main',response.data);
-           // console.log(response);
+            props.setdata(response.data);
+            setSigned(1);
         })
         .catch((err)=>{
             console.log(err);
@@ -100,7 +99,7 @@ function LoginStore(props) {
 
     return (
         <>
-            {signingform()}
+            {Signed==0?signingform():<Redirect to='/store_main'/>}
         </>
            )  
 }

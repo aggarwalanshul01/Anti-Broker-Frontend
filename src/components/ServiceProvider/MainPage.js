@@ -5,13 +5,11 @@ import { Route,Switch } from "react-router-dom";
 import Profile from "./Components/Profile";
 
 function MainPage(props) {
-    const data=(props.location.state);
-    console.log(data);
+    let data=props.data;
+    //console.log(data);
     return (
         <div>
-            
             <Header data={data}/>
-            
         </div>
     )
 }
