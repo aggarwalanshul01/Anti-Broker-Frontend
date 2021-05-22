@@ -26,12 +26,12 @@ function Header(props) {
                 SERVICE PROVIDER
             </div>
             <div className='header_profile'>
-                <NavLink exact to='/service_provider_main/profile' style={{textDecoration:'none'}}>
-                    <Button variant="" color="primary" style={{color:'green'}} >
+                    <Button variant="" color="primary" style={{color:'green'}} onClick={()=>{
+                        props.setprofile(props.profile^1);
+                    }}>
                         <span style={{marginRight:'8px'}}>{data.name}</span>
                         <PersonIcon/>
                     </Button>
-                </NavLink>
             </div>
         </div>
     )
