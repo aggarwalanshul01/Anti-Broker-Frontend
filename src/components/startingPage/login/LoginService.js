@@ -1,11 +1,12 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useContext} from 'react'
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
-import MainPage from "../../ServiceProvider/MainPage";
+import { IsG } from "../../../App";
 
 function LoginService(props) {
+    const isga = useContext(IsG);
     const [details, setdetails] = useState({username:'',password:''});
     const [Signed, setSigned] = useState(0);
 
@@ -24,7 +25,9 @@ function LoginService(props) {
             }if(response.data=='No UserName Exist'){
                 alert("No UserName Exist");
                 return;
-            } props.setdata(response.data);
+            } 
+            
+            props.setdata(response.data);
             setSigned(1);
       //      console.log("aaaaa",response);
         })
@@ -40,7 +43,9 @@ function LoginService(props) {
             if(response.data=='Please Register Yourself Via Signup'){
                 alert('Please Register Yourself Via Signup');
                 return;
-            } props.setdata(response.data);
+            } 
+            isga[1](1);
+            props.setdata(response.data);
             setSigned(1);
           //  console.log(response);
         })

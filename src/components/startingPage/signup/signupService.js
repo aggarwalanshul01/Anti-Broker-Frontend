@@ -1,11 +1,12 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
-import MainPage from "../../ServiceProvider/MainPage";
+import { IsG } from "../../../App";
 
 function SignupService(props) {
+    const isga = useContext(IsG);
     const [details, setdetails] = useState({username:'',name:'',age:'',phone:'',gender:'',password:'',description:''});
     const [Signed, setSigned] = useState(0);
     const formOnSubmit=(e)=>{
@@ -122,6 +123,7 @@ function SignupService(props) {
                 alert('You Are Already Registered');
                 return;
             }
+            isga[1](1);
              props.setdata(response.data);
             setSigned(1);
           //  console.log(response);
