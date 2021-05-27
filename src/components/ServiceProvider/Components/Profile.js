@@ -10,13 +10,13 @@ function Profile(props) {
     //console.log('aaaa '+ isga[0]);
     //console.log('aaa',props.data);
     let data=props.data;
-    const [details, setdetails] = useState({username:`${data.username}`,name:`${data.name}`,age:`${data.Age==null?'':data.Age}`,phone:`${data.Phone==null?'':data.Phone}`,gender:`${data.Gender==null?'':data.Gender}`,description:`${data.Description==null?'':data.Description}`,specialization:`${data.Specialization==null?'':data.Specialization}`});
+    const [details, setdetails] = useState({username:`${data.username}`,name:`${data.name}`,age:`${data.Age==null?'':data.Age}`,phone:`${data.Phone==null?'':data.Phone}`,gender:`${data.Gender==null?'':data.Gender}`,description:`${data.Description==null?'':data.Description}`,specialization:`${data.specialization==null?'':data.specialization}`});
     const isNull=()=>{
         if(data.username==null){
             return false;
         }if(data.Age==null){
             return false;
-        }if(data.Specialization==null){
+        }if(data.specialization==null){
             return false;
         }if(data.Description==null){
             return false;
@@ -52,15 +52,14 @@ function Profile(props) {
         if(isga[0]==1){
             update='updateG';
         }
+        console.log(details);
         axios.post(`http://localhost:3001/service/${update}`,details)
         .then(async(response)=>{
             let newD=response.data;
-            //console.log(data);
+            console.log(newD);
             setdetails({...details,password:data.password});
             props.setdata({...data,Age:details.age,Gender:details.gender,Phone:details.phone,
-                name:details.name,Specialization:details.specialization,Description:details.description});
-            
-            
+                name:details.name,specialization:details.specialization,Description:details.description});
         })
         .catch((err)=>{
             alert(err);

@@ -3,6 +3,7 @@ import Header from "./Components/Header";
 import "../../css/Service_Provider.css";
 import { Route,Switch,Redirect } from "react-router-dom";
 import Profile from "./Components/Profile";
+import ServiceMain from "./Components/ServiceMain";
 
 function MainPage(props) {
     const [profile, setprofile] = useState(1);
@@ -24,7 +25,7 @@ function MainPage(props) {
             <Header data={data} setprofile={setprofile} profile={profile}/>
             {profile==1?
                 <Profile data={props.data} setdata={props.setdata} setprofile={setprofile} profile={profile} profileComplete={setSpecificData}/>:
-                null
+                <ServiceMain data={props.data} setdata={props.setdata} setprofile={setprofile} profile={profile} profileComplete={setSpecificData}/>
             }
         </div>
     )
