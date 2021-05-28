@@ -1,6 +1,6 @@
 .header_service{
     background-color: beige;
-    min-height: 60px;
+    height: 8vh;
     display: flex;
     flex-direction: row;
     /* justify-content: center; */
@@ -25,4 +25,18 @@
     padding: 20px;
     align-items: center;
     text-align: center;
+}.servicepro_main{
+    display: flex;
+    flex-direction: row;
+}.service_navigate{
+    width: 22%;
+    display: block;
+    padding: 10px;
+    height: 92vh;
+    overflow-y: scroll;
+}.service_right_main{
+    width: 78%;
+    padding: 10px;
+    height: 92vh;
+    overflow-y: scroll;
 }
