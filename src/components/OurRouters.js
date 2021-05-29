@@ -11,15 +11,16 @@ import MainPageService from "./ServiceProvider/MainPage";
 import MainPageStore from "./Store/MainPage";
 import MainPageManager from "./Manager/MainPage";
 import Profile from "./ServiceProvider/Components/Profile";
-// import Routers_Service from "./ServiceProvider/Components/Routers";
+import Routers_Service from "./ServiceProvider/Components/Routers";
 
 function OurRouters(props) {
     //console.log("helloll"+props.data);
     return (
         <div>   
-            {/* <Routers_Service data={props.data} setdata={props.setdata}/> */}
+            <Routers_Service data={props.data} setdata={props.setdata}/>
+            <Route path='/service_provider_main' render={()=>{return <MainPageService data={props.data} setdata={props.setdata}/>}}/>
             <Switch>
-                <Route exact path='/service_provider_main' render={()=>{return <MainPageService data={props.data} setdata={props.setdata}/>}}/> 
+                {/* <Route path='/service_provider_main' render={()=>{return <MainPageService data={props.data} setdata={props.setdata}/>}}/>  */}
                 <Route exact path='/store_main' render={()=>{return <MainPageStore data={props.data} setdata={props.setdata}/>}}/> 
                 <Route exact path='/manager_main' render={()=>{return <MainPageManager data={props.data} setdata={props.setdata}/>}}/> 
                 <Route exact path='/signup_service_provider' render={()=>{return <SignupService data={props.data} setdata={props.setdata}/>}} />

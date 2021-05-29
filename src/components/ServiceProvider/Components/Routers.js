@@ -1,12 +1,16 @@
-import React from 'react';
-import { Route } from "react-router-dom";
+import React,{useContext} from 'react';
+import { Switch, Route } from "react-router-dom";
+import { ServiceComp } from '../../../App';
 import Profile from "./Profile";
 
 function Routers(props) {
-    
+    const ServiceC = useContext(ServiceComp);
     return (
         <div>
-            <Route exact path='/service_provider_main/profile' render={()=>{return <Profile data={props.data} setdata={props.setdata}/>}} />
+            <Switch>
+                {/* <Route exact path='/service_provider_main' />  */}
+                
+            </Switch>
         </div>
     )
 }
