@@ -20,7 +20,7 @@
     width: 30%;
     padding-right: 15px;
     text-align: right;
-    
+
 }.service_profile_main{
     padding: 20px;
     align-items: center;
@@ -29,14 +29,54 @@
     display: flex;
     flex-direction: row;
 }.service_navigate{
+    
     width: 22%;
     display: block;
     padding: 10px;
+    padding-top: 5px;
     height: 92vh;
     overflow-y: scroll;
-}.service_right_main{
+    background-color: rgb(245, 227, 227);
+}
+.service_right_main{
     width: 78%;
     padding: 10px;
     height: 92vh;
     overflow-y: scroll;
+}
+.hori_line{
+    padding: 0px;
+    margin: 5px;
+}.hori_line1{
+    padding: 0px;
+    margin: 5px;
+    /* margin-bottom: 5px; */
+}.link_main{
+    display: flex;
+    flex-direction: row;
+}
+.NavLinkService{
+    text-decoration: none;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    align-content: center;
+    justify-items: center;
+    text-align: center;
+    color: rgba(0, 0, 0, 0.589);
+}.NavLinkService:hover{
+    color: rgba(0, 0, 0, 0.63);
+    background-color: rgb(228, 213, 213);
+}.ActiveNavLinkService{
+    color: black;
+    background-color: rgb(212, 207, 207);
+}.store_name{
+    
+    font-family: 'Sigmar One', cursive;
+}.store_data_comp{
+    font-family: 'Source Sans Pro', sans-serif;
+}.is__done{
+    /* position: absolute; */
+    left:30px;
 }

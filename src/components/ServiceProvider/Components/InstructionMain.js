@@ -1,5 +1,6 @@
 import React from 'react';
-import {NavLink,Route} from 'react-router-dom';
+import {NavLink,Route,Switch} from 'react-router-dom';
+import Complaint from "./Complaint";
 
 function InstructionMain(props) {
     let complaints=props.complaints;
@@ -13,7 +14,20 @@ function InstructionMain(props) {
     }
     return (
         <div>
-            <Route path='/service_provider_main/60b0ad4dae7b634fa47cfc87' render={()=>{return 'hello'}}/>
+            
+            {
+                
+                complaints.map((val,ind)=>{
+                    console.log(val);
+                    if(ind==0){
+                        return <Route exact path={'/service_provider_main/'} render={()=>{return <Complaint val={val}/>}}/>
+                    }else{
+                    return <Route exact path={'/service_provider_main/'+val._id} render={()=>{return <Complaint val={val}/>}}/>
+                    }
+                })
+
+            }
+            
         </div>
     )
 }
