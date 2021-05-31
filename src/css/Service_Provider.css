@@ -37,14 +37,12 @@
     height: 92vh;
     overflow-y: scroll;
     background-color: rgb(245, 227, 227);
-}
-.service_right_main{
+}.service_right_main{
     width: 78%;
     padding: 10px;
     height: 92vh;
     overflow-y: scroll;
-}
-.hori_line{
+}.hori_line{
     padding: 0px;
     margin: 5px;
 }.hori_line1{
@@ -54,8 +52,7 @@
 }.link_main{
     display: flex;
     flex-direction: row;
-}
-.NavLinkService{
+}.NavLinkService{
     text-decoration: none;
     padding: 10px;
     display: flex;

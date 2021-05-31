@@ -47,7 +47,7 @@ function Navigator(props) {
                     <div >
                         
                             
-                    <NavLink exact className='NavLinkService' activeClassName='ActiveNavLinkService' to={'/service_provider_main/'+val._id}>
+                    <NavLink exact className='NavLinkService' activeClassName='ActiveNavLinkService' to={'/service_provider_main/'+val.ComplaintNo}>
                     <div className='NavLinkServiceDiv' key={val._id}>
                                 <div className="store_name">
                                 {val.StoreName}

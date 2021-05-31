@@ -1,24 +1,23 @@
-import React,{useState,useEffect} from 'react';
+import React,{useState,useEffect,useContext} from 'react';
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 import MainPage from "../../Store/MainPage";
+import { IsG } from "../../../App";
 
 function SignupStore(props) {
-    const [details, setdetails] = useState({username:'',name:'',age:'',phone:'',gender:'',password:'',description:''});
+    const isga = useContext(IsG);
+    const [details, setdetails] = useState({username:'',name:'',phone:'',password:'',description:''});
     const [Signed, setSigned] = useState(0);
     const [data, setdata] = useState(null);
     
     const formOnSubmit=(e)=>{
         e.preventDefault();
-        if(isNaN (details.age) ){
-            alert('Age is not valid');
-            return;
-        }else if(isNaN (details.phone) ||details.phone.length!=10){
+        if(isNaN (details.phone) ||details.phone.length!=10){
             alert('Phone Number is not valid');
             return;
-        }if(details.username==''||details.name==''||details.age==''||details.gender=='Choose...'||details.password==''||details.description==''){
+        }if(details.username==''||details.name==''||details.password==''||details.description==''){
             alert('Please Fill All The Fields');
             return;
         }
@@ -46,7 +45,7 @@ function SignupStore(props) {
                     
                     <h7 className="subtitle">Come join the community now! Let's set up your Account</h7>
                     <br/>
-                    <h7 style={{color: 'blue'}}>Already Have One: <a href="/login_service_provider"> SignIn</a></h7>
+                    <h7 style={{color: 'blue'}}>Already Have One: <a href="/login_store"> SignIn</a></h7>
                     <br/>
                     <br/>
                      <div className="formData">
@@ -63,30 +62,14 @@ function SignupStore(props) {
                                 </div>
                                 <input type="text" val name="name" value={details.name} onChange={(e)=>setdetails({...details,name:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
                             </div>
-                            <div className="input-group input-group-sm mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">Age</span>
-                            </div>
-                            <input type="text" name="age" value={details.age} onChange={(e)=>setdetails({...details,age:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
-                            </div>
+                            
                             <div className="input-group input-group-sm mb-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-sm">Contact No</span>
                             </div>
                             <input type="text" name="phone" value={details.phone} onChange={(e)=>setdetails({...details,phone:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
                             </div>
-                            <div className="input-group input-group-sm mb-3">
-                            <div className="input-group-prepend">
-                                <span className="input-group-text" id="inputGroup-sizing-sm">Gender</span>
-                            </div>
-                            <select name="gender" value={details.gender} onChange={(e)=>setdetails({...details,gender:e.target.value})}  style={{width: '70%'}} className="custom-select" id="inputGroupSelect02">
-                                <option selected>Choose...</option>
-                                <option value="Male">Male</option>
-                                <option value="Female">Female</option>
-                                <option value="Other">Other</option>
-                            </select>
                             
-                            </div>
                             <div className="input-group input-group-sm mb-3">
                             <div className="input-group-prepend">
                                 <span className="input-group-text" id="inputGroup-sizing-sm">Password</span>
@@ -123,6 +106,7 @@ function SignupStore(props) {
                 alert('You Are Already Registered');
                 return;
             }
+            isga[1](1);
             props.setdata(response.data);
             setSigned(1);
         })

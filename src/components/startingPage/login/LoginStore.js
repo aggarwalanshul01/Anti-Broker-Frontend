@@ -1,13 +1,14 @@
-import React,{useState,useEffect} from 'react'
+import React,{useState,useEffect,useContext} from 'react'
 import GoogleLogin from 'react-google-login';
 import "../../../css/startingPage/signup/Signup_login_Page.css";
 import axios from 'axios';
 import { Redirect } from "react-router-dom";
 import MainPage from "../../Store/MainPage";
+import { IsG } from "../../../App";
 
 
 function LoginStore(props) {
-    
+    const isga = useContext(IsG);
     const [details, setdetails] = useState({username:'',password:''});
     const [Signed, setSigned] = useState(0);
     const [data, setdata] = useState(null);
@@ -44,7 +45,7 @@ function LoginStore(props) {
                     
                     <h7 className="subtitle">Welcome! Good to see you back! Please provide your information for SignIn</h7>
                     <br/>
-                    <h7 style={{color: 'blue'}}>Haven't Registered Yet:  <a href="/signup_service_provider"> SignUp</a></h7>
+                    <h7 style={{color: 'blue'}}>Haven't Registered Yet:  <a href="/signup_store"> SignUp</a></h7>
                     <br/>
                     <br/>
                      <div className="formData">
@@ -88,6 +89,7 @@ function LoginStore(props) {
                 alert('Please Register Yourself Via Signup');
                 return;
             }
+            isga[1](1);
             props.setdata(response.data);
             setSigned(1);
         })

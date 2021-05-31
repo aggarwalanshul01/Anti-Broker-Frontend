@@ -22,7 +22,7 @@ function InstructionMain(props) {
                     if(ind==0){
                         return <Route exact path={'/service_provider_main/'} render={()=>{return <Complaint val={val}/>}}/>
                     }else{
-                    return <Route exact path={'/service_provider_main/'+val._id} render={()=>{return <Complaint val={val}/>}}/>
+                    return <Route exact path={'/service_provider_main/'+val.ComplaintNo} render={()=>{return <Complaint val={val}/>}}/>
                     }
                 })
 
