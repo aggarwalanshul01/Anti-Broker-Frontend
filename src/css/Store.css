@@ -1,0 +1,40 @@
+.storepro_main{
+    display: flex;
+    flex-direction: row;
+}
+.store_nav_head{
+    padding-top: 10px;
+    padding-bottom: 10px;
+    padding-left: 15px;
+    font-family: 'Sigmar One', cursive;
+    color: brown;
+    font-size: 23px;
+    text-align: center;
+}.store_nav_appliances{
+    margin-top: 10px;
+    padding-left: 15px;
+    display: flex;
+    flex-direction: column;
+}.book_popup{
+    position: fixed;
+    color: brown;
+    left: 0px;
+    top: 0px;
+}.book_main_pop{
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+    align-items: center;
+    align-content: center;
+    justify-content: center;
+    background-color: rgba(128, 128, 128, 0.336);
+}.main_mid_pop{
+    z-index: 9999;
+    position: relative;
+    display: block;
+    width: 500px;
+    height: 500px;
+    
+    border: 1px solid black;
+    background-color: white;
+}

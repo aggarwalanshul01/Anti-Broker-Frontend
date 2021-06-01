@@ -19,9 +19,10 @@ function OurRouters(props) {
         <div>   
             <Routers_Service data={props.data} setdata={props.setdata}/>
             <Route path='/service_provider_main' render={()=>{return <MainPageService data={props.data} setdata={props.setdata}/>}}/>
+            <Route path='/store_main' render={()=>{return <MainPageStore data={props.data} setdata={props.setdata}/>}}/>
             <Switch>
                 {/* <Route path='/service_provider_main' render={()=>{return <MainPageService data={props.data} setdata={props.setdata}/>}}/>  */}
-                <Route exact path='/store_main' render={()=>{return <MainPageStore data={props.data} setdata={props.setdata}/>}}/> 
+                 
                 <Route exact path='/manager_main' render={()=>{return <MainPageManager data={props.data} setdata={props.setdata}/>}}/> 
                 <Route exact path='/signup_service_provider' render={()=>{return <SignupService data={props.data} setdata={props.setdata}/>}} />
                 <Route exact path='/signup_store' render={()=>{return <SignupStore data={props.data} setdata={props.setdata}/>}} />
