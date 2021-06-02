@@ -28,7 +28,7 @@ function MainPage(props) {
                 <Profile data={props.data} setdata={props.setdata} setprofile={setprofile} profile={profile} profileComplete={setSpecificData}/>:
                 <StoreMain data={props.data} setdata={props.setdata} setprofile={setprofile} profile={profile} profileComplete={setSpecificData} setCardOpen={setCardOpen} setCardOpenedD={setCardOpenedD} CardOpen={CardOpen} CardOpenedD={CardOpenedD}/>
             }<div className='book_popup'>
-                {CardOpen==0?null:<Booking setCardOpen={setCardOpen} setCardOpenedD={setCardOpenedD} CardOpen={CardOpen} CardOpenedD={CardOpenedD}/>}
+                {CardOpen==0?null:<Booking data={props.data} setCardOpen={setCardOpen} setCardOpenedD={setCardOpenedD} CardOpen={CardOpen} CardOpenedD={CardOpenedD}/>}
             </div>
         </div>
     )
