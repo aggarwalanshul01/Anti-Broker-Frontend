@@ -10,11 +10,15 @@ function Profile(props) {
     //console.log('aaaa '+ isga[0]);
     //console.log('aaa',props.data);
     let data=props.data;
-    const [details, setdetails] = useState({username:`${data.username}`,name:`${data.name}`,age:`${data.Age==null?'':data.Age}`,phone:`${data.Phone==null?'':data.Phone}`,gender:`${data.Gender==null?'':data.Gender}`,description:`${data.Description==null?'':data.Description}`,specialization:`${data.specialization==null?'':data.specialization}`});
+    const [details, setdetails] = useState({email:`${data.email==null?'':data.email}`,username:`${data.username}`,name:`${data.name}`,age:`${data.Age==null?'':data.Age}`,phone:`${data.Phone==null?'':data.Phone}`,gender:`${data.Gender==null?'':data.Gender}`,description:`${data.Description==null?'':data.Description}`,specialization:`${data.specialization==null?'':data.specialization}`});
     const isNull=()=>{
         if(data.username==null){
             return false;
-        }if(data.Age==null){
+        }
+        if(data.email==null){
+            return false;
+        }
+        if(data.Age==null){
             return false;
         }if(data.specialization==null){
             return false;
@@ -28,10 +32,22 @@ function Profile(props) {
     }
     const formUpdation=(e)=>{
         e.preventDefault();
+        if(isNaN (details.age) ){
+            alert('Age is not valid');
+            return;
+        }else if(isNaN (details.phone) ||details.phone.length!=10){
+            alert('Phone Number is not valid');
+            return;
+        }
         if(details.username==''){
             alert('Please fill the Username field');
             return ;
-        }if(details.age==''){
+        }
+        if(details.email==''){
+            alert('Please fill the Email field');
+            return ;
+        }
+        if(details.age==''){
             alert('Please fill the Age field');
             return ;
         }if(details.specialization==''){
@@ -58,7 +74,7 @@ function Profile(props) {
             let newD=response.data;
             console.log(newD);
             setdetails({...details,password:data.password});
-            props.setdata({...data,Age:details.age,Gender:details.gender,Phone:details.phone,
+            props.setdata({...data,email:details.email,Age:details.age,Gender:details.gender,Phone:details.phone,
                 name:details.name,specialization:details.specialization,Description:details.description});
         })
         .catch((err)=>{
@@ -78,6 +94,12 @@ function Profile(props) {
                                     <span className="input-group-text" id="inputGroup-sizing-sm">Username</span>
                                 </div>
                                 <input type="text" disabled val name="username" value={details.username} onChange={(e)=>setdetails({...details,username:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                            </div>
+                            <div className="input-group input-group-sm mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                                </div>
+                                <input type="text" val name="email" value={details.email} onChange={(e)=>setdetails({...details,email:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
                             </div>
                             <div className="input-group input-group-sm mb-3">
                                 <div className="input-group-prepend">
