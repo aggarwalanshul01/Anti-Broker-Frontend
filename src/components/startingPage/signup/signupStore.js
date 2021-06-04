@@ -8,7 +8,7 @@ import { IsG } from "../../../App";
 
 function SignupStore(props) {
     const isga = useContext(IsG);
-    const [details, setdetails] = useState({username:'',name:'',phone:'',password:'',description:''});
+    const [details, setdetails] = useState({email:'',username:'',name:'',phone:'',password:'',description:''});
     const [Signed, setSigned] = useState(0);
     const [data, setdata] = useState(null);
     
@@ -17,7 +17,7 @@ function SignupStore(props) {
         if(isNaN (details.phone) ||details.phone.length!=10){
             alert('Phone Number is not valid');
             return;
-        }if(details.username==''||details.name==''||details.password==''||details.description==''){
+        }if(details.email==''||details.username==''||details.name==''||details.password==''||details.description==''){
             alert('Please Fill All The Fields');
             return;
         }
@@ -25,6 +25,9 @@ function SignupStore(props) {
         .then((response)=>{
             if(response.data=='Username Already Exists'){
                 alert('Username Already Exists');
+                return;
+            }if(response.data=='Email is not valid'){
+                alert('Email is not valid');
                 return;
             }
             props.setdata(response.data);
@@ -55,6 +58,12 @@ function SignupStore(props) {
                                     <span className="input-group-text" id="inputGroup-sizing-sm">Username</span>
                                 </div>
                                 <input type="text" val name="username" value={details.username} onChange={(e)=>setdetails({...details,username:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                            </div>
+                            <div className="input-group input-group-sm mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                                </div>
+                                <input type="text" val name="email" value={details.email} onChange={(e)=>setdetails({...details,email:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
                             </div>
                             <div className="input-group input-group-sm mb-3">
                                 <div className="input-group-prepend">

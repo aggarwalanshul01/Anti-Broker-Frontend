@@ -71,6 +71,10 @@ function Profile(props) {
         console.log(details);
         axios.post(`http://localhost:3001/service/${update}`,details)
         .then(async(response)=>{
+            if(response.data=='Email is not valid'){
+                alert('Email is not valid');
+                return;
+            }
             let newD=response.data;
             console.log(newD);
             setdetails({...details,password:data.password});

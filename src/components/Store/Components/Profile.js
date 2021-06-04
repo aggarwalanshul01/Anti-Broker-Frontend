@@ -8,10 +8,13 @@ import ClearIcon from '@material-ui/icons/Clear';
 function Profile(props) {
     const isga = useContext(IsG);
     //console.log('aaaa '+ isga[0]);
-    console.log('aaa',props.data);
+    //console.log('aaa',props.data);
     let data=props.data;
-    const [details, setdetails] = useState({username:`${data.username}`,name:`${data.name}`,phone:`${data.Phone==null?'':data.Phone}`,description:`${data.Address==null?'':data.Address}`});
+    const [details, setdetails] = useState({email:`${data.email==null?'':data.email}`,username:`${data.username}`,name:`${data.name}`,phone:`${data.Phone==null?'':data.Phone}`,description:`${data.Address==null?'':data.Address}`});
     const isNull=()=>{
+        if(data.email==null){
+            return false;
+        }
         if(data.username==null){
             return false;
         }if(data.Address==null){
@@ -25,7 +28,12 @@ function Profile(props) {
         if(details.username==''){
             alert('Please fill the Username field');
             return ;
-        }if(details.description==''){
+        }
+        if(details.email==''){
+            alert('Please fill the Email field');
+            return ;
+        }
+        if(details.description==''){
             alert('Please fill the Address field');
             return ;
         }if(details.phone==''){
@@ -40,10 +48,14 @@ function Profile(props) {
         console.log(details);
         axios.post(`http://localhost:3001/store/${update}`,details)
         .then(async(response)=>{
+            if(response.data=='Email is not valid'){
+                alert('Email is not valid');
+                return;
+            }
             let newD=response.data;
             console.log(newD);
             setdetails({...details,password:data.password});
-            props.setdata({...data,Phone:details.phone,
+            props.setdata({...data,Phone:details.phone,email:details.email,
                 name:details.name,Address:details.description});
         })
         .catch((err)=>{
@@ -63,6 +75,12 @@ function Profile(props) {
                                     <span className="input-group-text" id="inputGroup-sizing-sm">Username</span>
                                 </div>
                                 <input type="text" disabled val name="username" value={details.username} onChange={(e)=>setdetails({...details,username:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
+                            </div>
+                            <div className="input-group input-group-sm mb-3">
+                                <div className="input-group-prepend">
+                                    <span className="input-group-text" id="inputGroup-sizing-sm">Email</span>
+                                </div>
+                                <input type="text" val name="email" value={details.email} onChange={(e)=>setdetails({...details,email:e.target.value})} className="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm"/>
                             </div>
                             <div className="input-group input-group-sm mb-3">
                                 <div className="input-group-prepend">
