@@ -1,17 +1,29 @@
-import React from 'react';
+import React,{useState,useEffect} from 'react';
 import {NavLink} from 'react-router-dom';
 import FiberManualRecordIcon from '@material-ui/icons/FiberManualRecord';
 
 function Navigator(props) {
-    let complaints=props.complaints;
-    console.log(complaints);
-    if(complaints.length==0){
+    const comp =(props.complaints);
+    //let comp=props.complaints;
+    //console.log(comp);
+    const complaints=[];
+    for(let i=comp.length-1;i>=0;i--){
+        if(comp[i].IsDone==0){
+            complaints.push(comp[i]);
+        }
+    }for(let i=comp.length-1;i>=0;i--){
+        if(comp[i].IsDone==1){
+            complaints.push(comp[i]);
+        }
+    }
+    if(comp.length==0){
         return (
             <div>
                 WOAH ! NO COMPLAINTS
             </div>
         )
     }
+
     return (
         <div className='Navigator_Main_Service'>
             {/* <hr className="hori_line1"/> */}

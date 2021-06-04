@@ -3,7 +3,19 @@ import {NavLink,Route,Switch} from 'react-router-dom';
 import Complaint from "./Complaint";
 
 function InstructionMain(props) {
-    let complaints=props.complaints;
+    const comp =(props.complaints);
+    //let comp=props.complaints;
+    //console.log(comp);
+    const complaints=[];
+    for(let i=comp.length-1;i>=0;i--){
+        if(comp[i].IsDone==0){
+            complaints.push(comp[i]);
+        }
+    }for(let i=comp.length-1;i>=0;i--){
+        if(comp[i].IsDone==1){
+            complaints.push(comp[i]);
+        }
+    }
     //console.log(complaints.length);
     if(complaints.length==0){
         return (
@@ -18,7 +30,7 @@ function InstructionMain(props) {
             {
                 
                 complaints.map((val,ind)=>{
-                    console.log(val);
+               //     console.log(val);
                     if(ind==0){
                         return <Route exact path={'/service_provider_main/'} render={()=>{return <Complaint val={val}/>}}/>
                     }else{

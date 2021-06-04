@@ -9,6 +9,8 @@ function ComplaintForm(props) {
     //console.log(date);    
     let DataProvider=props.CardOpenedD;
     let DataStore=props.data;
+    //console.log(DataProvider);
+    //console.log(DataStore);
     const [Problem, setProblem] = useState('');
     const [Err, setErr] = useState('');
     const [Comp, setComp] = useState('');
@@ -23,7 +25,7 @@ function ComplaintForm(props) {
         }else{
             setErr('Successfully Done');
         }
-        let details={username:DataProvider.username,DateBooked:date,StoreName:DataStore.name,MachineName:DataProvider.profession,PhoneStore:DataStore.Phone,Address:DataStore.Address,Problem:Problem,}
+        let details={username:DataProvider.username,usernameStore:DataStore.username,DateBooked:date,StoreName:DataStore.name,MachineName:DataProvider.profession,PhoneStore:DataStore.Phone,Address:DataStore.Address,Problem:Problem,}
         axios.post('http://localhost:3001/store/makeComplaint',details)
         .then((response)=>{
             console.log(response.data);
