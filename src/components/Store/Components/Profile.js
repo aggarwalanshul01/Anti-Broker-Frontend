@@ -4,6 +4,7 @@ import axios from 'axios';
 import { IsG } from "../../../App";
 import Button from '@material-ui/core/Button';
 import ClearIcon from '@material-ui/icons/Clear';
+import { NavLink } from "react-router-dom";
 
 function Profile(props) {
     const isga = useContext(IsG);
@@ -116,6 +117,7 @@ function Profile(props) {
     return (
         <div className='service_profile_main'>
             <div style={{position:'fixed',right:'20px'}}>
+            <NavLink exact  to='/store_main/'>
             <Button color="secondary" onClick={
                 ()=>{
                     props.setprofile(0);
@@ -123,6 +125,7 @@ function Profile(props) {
             }>
                 <ClearIcon/>
             </Button>
+            </NavLink>
             </div>
             <div style={{fontSize:'30px'}}>HELLO, <span style={{color:'blue'}}>{data.name}</span></div>
             {signingform()}
