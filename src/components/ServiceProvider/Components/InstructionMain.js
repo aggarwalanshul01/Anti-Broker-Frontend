@@ -32,9 +32,9 @@ function InstructionMain(props) {
                 complaints.map((val,ind)=>{
                //     console.log(val);
                     if(ind==0){
-                        return <Route exact path={'/service_provider_main/'} render={()=>{return <Complaint val={val}/>}}/>
+                        return <Route exact path={'/service_provider_main/'} render={()=>{return <Complaint val={val} func={props.func}/>}}/>
                     }else{
-                    return <Route exact path={'/service_provider_main/'+val.ComplaintNo} render={()=>{return <Complaint val={val}/>}}/>
+                    return <Route exact path={'/service_provider_main/'+val.ComplaintNo} render={()=>{return <Complaint val={val} func={props.func}/>}}/>
                     }
                 })
 
