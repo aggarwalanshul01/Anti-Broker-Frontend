@@ -40,7 +40,7 @@ function LoginManager(props) {
                     
                     <h7 className="subtitle">Welcome! Good to see you back! Please provide your information for SignIn</h7>
                     <br/>
-                    <h7 style={{color: 'blue'}}>Haven't Registered Yet:  <a href="/signup_service_provider"> SignUp</a></h7>
+                    <h7 style={{color: 'blue'}}>Haven't Registered Yet:  <a href="/signup_manager"> SignUp</a></h7>
                     <br/>
                     <br/>
                      <div className="formData">

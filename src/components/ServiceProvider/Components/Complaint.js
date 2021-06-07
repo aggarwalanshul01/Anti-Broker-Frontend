@@ -10,7 +10,7 @@ function Complaint(props) {
     const [PhoneEngi, setPhoneEngi] = useState('');
     const [data, setdata] = useState(props.val);
     //let space='  ';
-    console.log(props.val);
+    //console.log(props.val);
     const [IsFinal, setIsFinal] = useState(props.val.IsFinal);
     const finalize=(e)=>{
         //console.log(NameEngi);
