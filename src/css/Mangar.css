@@ -1,0 +1,22 @@
+.manager_navigate{
+    width: 22%;
+    display: block;
+    padding: 10px;
+    padding-top: 15px;
+    height: 92vh;
+    overflow-y: scroll;
+    background-color: whitesmoke;
+}.manager_navi_heading{
+    font-family: 'Sigmar One', cursive;
+    padding: 17px;
+}
+.head_serve_man{
+    font-family: 'Source Sans Pro', sans-serif;
+    font-weight: 600;
+    font-size: 20px;
+    cursor: pointer;
+    padding:14px;
+    padding-left: 17px;
+}.head_serve_man:hover{
+    background-color: rgb(245, 233, 233);
+}
