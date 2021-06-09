@@ -17,6 +17,21 @@
     cursor: pointer;
     padding:14px;
     padding-left: 17px;
-}.head_serve_man:hover{
-    background-color: rgb(245, 233, 233);
+}.particular_month_main{
+    /* text-align: center; */
+    font-family: 'Source Sans Pro', sans-serif;
+}.particular_month_head{
+    margin-bottom: 10px;
+    background-color: bisque;
+    display: flex;
+    padding: 10px;
+    padding-left: 25px;
+    font-size: large;
+    cursor: pointer;
+    flex-direction: row;
+}.parti_his_main{
+    margin-top: 20px;
+    margin-left: 200px;
+    align-content: center;
+    text-align: center;
 }

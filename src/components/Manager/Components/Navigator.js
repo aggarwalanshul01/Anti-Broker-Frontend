@@ -1,6 +1,5 @@
 import React,{useState,useEffect} from 'react';
 import {NavLink,Route} from 'react-router-dom';
-import ParticularProvider from "./ParticularProvider";
 
 function Navigator(props) {
     const opened =(props.opened);
@@ -21,24 +20,26 @@ function Navigator(props) {
             {/* <hr className="hori_line1"/> */}
             <div className='manager_navi_heading'> SERVICE PROVIDERS</div>
             {maincomp.map((val,ind)=>{
+                if(ind==0){
+                    return (
+                        <>
+                        <div>
+                        <NavLink exact className='NavLinkService' activeClassName='ActiveNavLinkService' to={"/manager_main/"}>
+                            <div className='head_serve_man'><b>{providers[ind]}</b></div>
+                            </NavLink>
+                            
+                        </div>
+                        <hr className="hori_line"/>
+                        </>
+                )
+                }
                 return (
                         <>
                         <div>
-                            <div className='head_serve_man' onClick={
-                                ()=>{
-                                    let o=[];
-                                    for(let i=0;i<opened.length;i++){
-                                        if(i==ind){
-                                            o.push(opened[i]^1);
-                                            continue;
-                                        }
-                                        o.push(opened[i]);
-                                    }
-                                    setopened(o);
-                                }
-                            }><b>{providers[ind]}</b></div>
-                            {opened[ind]==1?<ParticularProvider val={val} pre={'/manager_main/'}/>:null}
-                            {/* <Route path={'/manager_main/'} render={()=>{return <ParticularProvider val={val} pre={'/manager_main/'}/>}}/> */}
+                        <NavLink exact className='NavLinkService' activeClassName='ActiveNavLinkService' to={"/manager_main/"+providers[ind]+"/"}>
+                            <div className='head_serve_man'><b>{providers[ind]}</b></div>
+                            </NavLink>
+                            
                         </div>
                         <hr className="hori_line"/>
                         </>

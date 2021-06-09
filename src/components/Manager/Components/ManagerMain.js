@@ -83,7 +83,7 @@ function ManagerMain(props) {
                 <Navigator complaints={comp} opened={opened} setopened={setopened} maincomp={maincomp} pro={pro}/>
             </div>
             <div className='service_right_main'>
-                <InstructionMain  complaints={comp}/>
+                <InstructionMain  complaints={comp} opened={opened} setopened={setopened} maincomp={maincomp} pro={pro}/>
             </div>
         </div>
     )
