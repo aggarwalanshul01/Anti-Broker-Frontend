@@ -6,7 +6,8 @@ function MainHeader(props) {
     return (
         <div className='main_header_top'>
             <div className="main_logo">
-                <object data='/images/logo.svg' type="image/svg+xml" width='180px'></object>
+                <img src='/images/broker-logo.png' height='40px'/>
+                {/* <object data='/images/logo.svg' type="image/svg+xml" width='180px'></object> */}
             </div>
             <div className="main_search">
                 
