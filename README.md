@@ -1,70 +1,73 @@
-# Getting Started with Create React App
+# Anti Broker Full Stack Web
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This project is basically based on the real time problems of having call centres specially for the complaints done by various stores for the failure of a particular equipment which inturn is given to the particular service provider who can handle the problem by the call centres. This project helps to make the direct communication between the service providers and the stores which removes the need of call-centres. (eg. mcdonalds, dominos and many more)
 
-## Available Scripts
+## Build on MERN STACK
 
-In the project directory, you can run:
+## MAIN PAGE 
 
-### `npm start`
+![image](https://user-images.githubusercontent.com/71537601/121775145-75b78000-cba3-11eb-9885-8e03038d795a.png)
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+![image](https://user-images.githubusercontent.com/71537601/121775225-f1b1c800-cba3-11eb-8122-b7ce1025a480.png)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## SERVICE PROVIDERS
 
-### `npm test`
+### Service Main Page 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+(With Tags of completion(is completed)) with automatic email system through Node on finalizing
+![image](https://user-images.githubusercontent.com/71537601/121776210-34c26a00-cba9-11eb-9bc6-b7e1ad8d9ac9.png)
 
-### `npm run build`
+Uploading S. No given by Store
+![image](https://user-images.githubusercontent.com/71537601/121776241-57548300-cba9-11eb-8194-74091d401f92.png)
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+### SignUP / SignIN (WITH GOOGLE SignUP / SignIN)
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+![image](https://user-images.githubusercontent.com/71537601/121775307-671d9880-cba4-11eb-91dc-95cd37bf5df1.png)
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+![image](https://user-images.githubusercontent.com/71537601/121775345-a0560880-cba4-11eb-9a44-0b8ec9b0c5d4.png)
 
-### `npm run eject`
+### Profile Page
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+With Editing Option and Validations
+![image](https://user-images.githubusercontent.com/71537601/121775578-3cccda80-cba6-11eb-8c8d-4f49ec450ce8.png)
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+## STORES 
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+### Store Main Page (WITH PREVIOUS COMPLAINTS)
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+Here we can choose any of the service providers and book them. 
 
-## Learn More
+![image](https://user-images.githubusercontent.com/71537601/121775540-f7a8a880-cba5-11eb-8f5e-63bd51310d4c.png)
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+### Booking Provider (with automatic email system through Node)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+It will automatically generate the Complaint No which is also sent to the provider via email as well on the profile, Service No which is private that is given by stores to the service provider when he/she done his/her work completely.
 
-### Code Splitting
+![image](https://user-images.githubusercontent.com/71537601/121775815-663a3600-cba7-11eb-96b1-7da5b5c0db73.png)
+![image](https://user-images.githubusercontent.com/71537601/121775915-d779e900-cba7-11eb-81c7-3d2252870e7a.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
+### Previous Complaints
 
-### Analyzing the Bundle Size
+(With sorting according to date booked and completion
+![image](https://user-images.githubusercontent.com/71537601/121776294-ad292b00-cba9-11eb-951e-7f0f7c32b0d4.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### SignUP / SignIN (WITH GOOGLE SignUP / SignIN)
 
-### Making a Progressive Web App
+![image](https://user-images.githubusercontent.com/71537601/121775614-6dad0f80-cba6-11eb-8e43-2cda0e55e510.png)
+![image](https://user-images.githubusercontent.com/71537601/121775637-83223980-cba6-11eb-909d-9f88c9399751.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### Profile Page
 
-### Advanced Configuration
+With Editing Option and Validations
+![image](https://user-images.githubusercontent.com/71537601/121775713-e57b3a00-cba6-11eb-84cb-2f250716e5ce.png)
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
+## MANAGERS
 
-### Deployment
+### Managers Main Page 
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+(With Tags of completion(is completed))
+![image](https://user-images.githubusercontent.com/71537601/121776382-2163ce80-cbaa-11eb-9f4d-9e9bac47d33c.png)
 
-### `npm run build` fails to minify
+Similarly Managers too have login/signup and profile page.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+
